@@ -1,8 +1,7 @@
 {
     "$schema": "https://biomejs.dev/schemas/1.8.1/schema.json",
     "organizeImports": {
-        "enabled": true,
-        "ignore": ["node_modules/**/*", "dist/**/*", ".output", ".nuxt"]
+        "enabled": true
     },
     "linter": {
         "enabled": true,
@@ -23,38 +22,7 @@
                 "noParameterProperties": "off",
                 "noNamespaceImport": "off",
                 "useFilenamingConvention": "off",
-                "useNamingConvention": {
-                    "level": "warn",
-                    "options": {
-                        "requireAscii": false,
-                        "strictCase": false,
-                        "conventions": [
-                            {
-                                "selector": {
-                                    "kind": "typeProperty"
-                                },
-                                "formats": [
-                                    "camelCase",
-                                    "CONSTANT_CASE",
-                                    "PascalCase",
-                                    "snake_case"
-                                ]
-                            },
-                            {
-                                "selector": {
-                                    "kind": "objectLiteralProperty",
-                                    "scope": "any"
-                                },
-                                "formats": [
-                                    "camelCase",
-                                    "CONSTANT_CASE",
-                                    "PascalCase",
-                                    "snake_case"
-                                ]
-                            }
-                        ]
-                    }
-                }
+                "useNamingConvention": "off"
             },
             "nursery": {
                 "noDuplicateElseIf": "warn",
@@ -66,13 +34,20 @@
                 "useImportExtensions": "off",
                 "useThrowNewError": "warn"
             }
-        },
-        "ignore": ["node_modules/**/*", "dist/**/*", ".output", ".nuxt"]
+        }
     },
     "formatter": {
         "enabled": true,
         "indentStyle": "space",
-        "indentWidth": 4,
-        "ignore": ["node_modules/**/*", "dist/**/*", ".output", ".nuxt"]
+        "indentWidth": 4
+    },
+    "files": {
+        "ignore": [
+            "node_modules/**/*",
+            "dist/**/*",
+            "tsconfig.*",
+            "entry.server.tsx",
+            "entry.client.tsx"
+        ]
     }
 }
