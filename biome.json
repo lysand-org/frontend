@@ -47,7 +47,8 @@
             "dist/**/*",
             "tsconfig.*",
             "entry.server.tsx",
-            "entry.client.tsx"
+            "entry.client.tsx",
+            "build"
         ]
     }
 }

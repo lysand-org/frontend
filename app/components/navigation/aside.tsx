@@ -48,7 +48,7 @@ export const Aside = () => {
                         />
                     </Avatar>
                 </Link>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 mt-6">
                     <h3 className="font-semibold text-xs uppercase">
                         Timelines
                     </h3>
