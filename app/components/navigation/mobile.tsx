@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import { Bell, Home, Pencil, User } from "lucide-react";
-import type { FC } from "react";
+import { type FC, forwardRef } from "react";
 import { Button } from "../ui/button";
 import { Drawer, DrawerTrigger } from "../ui/drawer";
 
@@ -25,14 +25,17 @@ export const MobileNavigation = () => {
     );
 };
 
-const MobileNavbarButton: FC<{
-    Icon: FC<{ className?: string }>;
-    text: string;
-}> = ({ Icon, text }) => {
+const MobileNavbarButton = forwardRef<
+    HTMLButtonElement,
+    {
+        Icon: FC<{ className?: string }>;
+        text: string;
+    }
+>(({ Icon, text }, ref) => {
     return (
-        <Button variant="ghost" size="icon" className="w-full h-full">
+        <Button ref={ref} variant="ghost" size="icon" className="w-full h-full">
             <Icon className="size-5" />
             <span className="sr-only">{text}</span>
         </Button>
     );
-};
+});

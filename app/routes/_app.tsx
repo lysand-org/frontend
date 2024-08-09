@@ -10,6 +10,11 @@ export const meta: MetaFunction = () => {
             name: "description",
             content: "Frontend for the Lysand project",
         },
+        {
+            rel: "icon",
+            href: "/favicon.png",
+            type: "image/png",
+        },
     ];
 };
 

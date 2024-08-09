@@ -4,35 +4,14 @@ import {
     Outlet,
     Scripts,
     ScrollRestoration,
-    useLoaderData,
 } from "@remix-run/react";
 import "./globals.css";
-import type { LoaderFunction } from "@remix-run/node";
-import {
-    PreventFlashOnWrongTheme,
-    type Theme,
-    ThemeProvider,
-    useTheme,
-} from "remix-themes";
 import { TooltipProvider } from "~/components/ui/tooltip";
-import { themeSessionResolver } from "./sessions.server";
-
-// Return the theme from the session storage using the loader
-export const loader: LoaderFunction = async ({ request }) => {
-    const { getTheme } = await themeSessionResolver(request);
-    return {
-        theme: getTheme(),
-    };
-};
+import { ThemeProvider } from "./components/theming/provider";
 
 export function App() {
-    const data = useLoaderData<{
-        theme: Theme | null;
-    }>();
-    const [theme] = useTheme();
-
     return (
-        <html lang="en" data-theme={theme}>
+        <html lang="en">
             <head>
                 <meta charSet="utf-8" />
                 <meta
@@ -40,7 +19,6 @@ export function App() {
                     content="width=device-width, initial-scale=1"
                 />
                 <Meta />
-                <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
                 <Links />
             </head>
             <body>
@@ -53,14 +31,8 @@ export function App() {
 }
 
 export default function AppWithProviders() {
-    const data = useLoaderData<{
-        theme: Theme | null;
-    }>();
     return (
-        <ThemeProvider
-            specifiedTheme={data.theme}
-            themeAction="/action/set-theme"
-        >
+        <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
             <TooltipProvider>
                 <App />
             </TooltipProvider>

@@ -43,7 +43,7 @@ export const Aside = () => {
                 <Link to="#">
                     <Avatar className="size-11 rounded ring-1 ring-ring/10 hover:scale-105 duration-200 bg-primary">
                         <AvatarImage
-                            src="https://social.lysand.org/logo.webp"
+                            src="/logo.webp"
                             alt="Logo of your instance"
                         />
                     </Avatar>
