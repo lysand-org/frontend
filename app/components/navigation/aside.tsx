@@ -1,20 +1,5 @@
 import { Link } from "@remix-run/react";
-import {
-    Bell,
-    Earth,
-    Home,
-    LineChart,
-    Package,
-    Package2,
-    Settings,
-    ShoppingCart,
-    Users2,
-} from "lucide-react";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "~/components/ui/tooltip";
+import { Bell, Earth, Home } from "lucide-react";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 
