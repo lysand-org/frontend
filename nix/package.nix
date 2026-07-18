@@ -2,6 +2,8 @@
   lib,
   stdenv,
   pnpm,
+  fetchPnpmDeps,
+  pnpmConfigHook,
   bun,
   nodejs,
   makeWrapper,
@@ -15,15 +17,15 @@ in
 
     src = ../.;
 
-    pnpmDeps = pnpm.fetchDeps {
+    pnpmDeps = fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
-      fetcherVersion = 3;
-      hash = "sha256-cBcHtyffeFIJu7KkotI7aFA0Omlhd3uzE/W3zu/z+mo=";
+      fetcherVersion = 4;
+      hash = "sha256-YboCuOYMaXygxx673F43leh7Tq26YFWEdooGsnrXvog=";
     };
 
     nativeBuildInputs = [
       pnpm
-      pnpm.configHook
+      pnpmConfigHook
       bun
       nodejs
       makeWrapper
